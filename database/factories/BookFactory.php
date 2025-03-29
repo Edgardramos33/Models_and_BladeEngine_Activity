@@ -9,15 +9,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BookFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            //
+            'isbn' => $this->faker->unique()->isbn13(),
+            'title' => $this->faker->sentence(3),
+            'author' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'date_published' => $this->faker->date(),
         ];
     }
 }
